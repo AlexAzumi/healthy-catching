@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/CatchGame.unity
+    guid: 1b65fd6b6b911304ba95ce04584e308d
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: a5250fd0dcb76ea4e8ec8419960e7011
   m_configObjects: {}

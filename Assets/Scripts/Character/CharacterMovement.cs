@@ -11,7 +11,10 @@ public class CharacterMovement : MonoBehaviour
      */
     void Update()
     {
-        MoveCharacter();
+        if (Time.timeScale == 1.0f)
+        {
+            MoveCharacter();
+        }
     }
 
     /*
