@@ -44,13 +44,12 @@ public class Game : MonoBehaviour
         applyScoreAnimation(score > 0);
     }
 
+    /*
+     * Activar animación cuando se atrapa algún alimento
+     */
     private void applyScoreAnimation(bool positive)
     {
-        if (positive)
-        {
-
-        }
-        else
+        if (!positive)
         {
             playerScoreText.GetComponent<Animator>().SetTrigger("Error");
         }
@@ -67,6 +66,7 @@ public class Game : MonoBehaviour
         }
         else
         {
+            // Reducir la puntuación por atrapar comida chatarra
             setScore(-1);
         }
     }
