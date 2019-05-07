@@ -5,8 +5,11 @@ public class Game : MonoBehaviour
 {
     [Header("Parámetros")]
     public int playerScore;
+    public float timeBetweenSpawn = 1.0f;
     [Header("UI")]
     public GameObject playerScoreText;
+    [Header("Posiciones")]
+    public GameObject[] spawnPositions;
     [Header("Cereales")]
     public GameObject[] cereales;
     [Header("Chatarra")]
@@ -20,6 +23,9 @@ public class Game : MonoBehaviour
     [Header("Verduras")]
     public GameObject[] verduras;
 
+    // Otras variables
+    private float timer;
+
     /*
      * Iniciar juego
      */
@@ -27,6 +33,59 @@ public class Game : MonoBehaviour
     {
         // Instanciar el puntaje
         playerScore = 0;
+        timer = 0;
+    }
+
+    /*
+     * Actualización por frame
+     */
+    private void Update()
+    {
+        // Agregar tiempo
+        timer += Time.deltaTime;
+        if (timer >= timeBetweenSpawn)
+        {
+            // Calcular spawn aleatorio
+            int spawn = Random.Range(0, spawnPositions.Length);
+            // Calcular tipo de comida aleatorio
+            int food = Random.Range(0, 5);
+            switch (food)
+            {
+                case 0:
+                    spawnFood(ref cereales, spawn);
+                    break;
+                case 1:
+                    spawnFood(ref chatarra, spawn);
+                    break;
+                case 2:
+                    spawnFood(ref frutas, spawn);
+                    break;
+                case 3:
+                    spawnFood(ref leguminosas, spawn);
+                    break;
+                case 4:
+                    spawnFood(ref origenAnimal, spawn);
+                    break;
+                case 5:
+                    spawnFood(ref verduras, spawn);
+                    break;
+                default:
+                    Debug.LogError("Tipo de comida fuera de rango");
+                    break;
+            }
+            // Reiniciar timer
+            timer = 0.0f;
+        }
+    }
+
+    /*
+     * Aparecer comida en lugares aleatorios
+     */
+    private void spawnFood(ref GameObject[] food, int spawnPosition)
+    {
+        int foodPosition = Random.Range(0, food.Length);
+        // Instanciar elemento
+        Instantiate(food[foodPosition], spawnPositions[spawnPosition].transform.position, spawnPositions[spawnPosition].transform.rotation);
     }
 
     /*
