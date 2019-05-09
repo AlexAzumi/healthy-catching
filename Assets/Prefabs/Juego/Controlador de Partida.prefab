@@ -383,7 +383,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   timeBetweenSpawn: 1
+  minGravityScale: 0.5
+  maxGravityScale: 1.2
   playerScoreText: {fileID: 0}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnPositions:
   - {fileID: 1673129249}
   - {fileID: 1266382912}

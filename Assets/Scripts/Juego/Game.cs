@@ -6,8 +6,11 @@ public class Game : MonoBehaviour
     [Header("Parámetros")]
     public int playerScore;
     public float timeBetweenSpawn = 1.0f;
+    public float minGravityScale = 0.5f;
+    public float maxGravityScale = 1.2f;
     [Header("UI")]
     public GameObject playerScoreText;
+    public GameObject[] hearts;
     [Header("Posiciones")]
     public GameObject[] spawnPositions;
     [Header("Cereales")]
@@ -25,6 +28,7 @@ public class Game : MonoBehaviour
 
     // Otras variables
     private float timer;
+    private int heartCount;
 
     /*
      * Iniciar juego
@@ -34,6 +38,7 @@ public class Game : MonoBehaviour
         // Instanciar el puntaje
         playerScore = 0;
         timer = 0;
+        heartCount = 2;
     }
 
     /*
@@ -52,22 +57,22 @@ public class Game : MonoBehaviour
             switch (food)
             {
                 case 0:
-                    spawnFood(ref cereales, spawn);
+                    spawnFood(cereales, spawn);
                     break;
                 case 1:
-                    spawnFood(ref chatarra, spawn);
+                    spawnFood(chatarra, spawn);
                     break;
                 case 2:
-                    spawnFood(ref frutas, spawn);
+                    spawnFood(frutas, spawn);
                     break;
                 case 3:
-                    spawnFood(ref leguminosas, spawn);
+                    spawnFood(leguminosas, spawn);
                     break;
                 case 4:
-                    spawnFood(ref origenAnimal, spawn);
+                    spawnFood(origenAnimal, spawn);
                     break;
                 case 5:
-                    spawnFood(ref verduras, spawn);
+                    spawnFood(verduras, spawn);
                     break;
                 default:
                     Debug.LogError("Tipo de comida fuera de rango");
@@ -81,11 +86,16 @@ public class Game : MonoBehaviour
     /*
      * Aparecer comida en lugares aleatorios
      */
-    private void spawnFood(ref GameObject[] food, int spawnPosition)
+    private void spawnFood(GameObject[] food, int spawnPosition)
     {
+        // Obtener alimento
         int foodPosition = Random.Range(0, food.Length);
+        GameObject newFood = food[foodPosition];
+        // Variar masa
+        float gravityScale = Random.Range(minGravityScale, maxGravityScale);
+        newFood.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
         // Instanciar elemento
-        Instantiate(food[foodPosition], spawnPositions[spawnPosition].transform.position, spawnPositions[spawnPosition].transform.rotation);
+        Instantiate(newFood, spawnPositions[spawnPosition].transform.position, spawnPositions[spawnPosition].transform.rotation);
     }
 
     /*
@@ -115,6 +125,32 @@ public class Game : MonoBehaviour
     }
 
     /*
+     * Eliminar corazón
+     */
+    private void deleteHeart()
+    {
+        // Desactivar corazón
+        hearts[heartCount].SetActive(false);
+        if (heartCount > 0)
+        {
+            // Reducir cuenta
+            heartCount--;
+        }
+        else
+        {
+            Debug.LogWarning("Partida terminada");
+        }
+    }
+
+    /*
+     * Fin de la partida
+     */
+    public void finishGame()
+    {
+        /* TODO: Hacer método de terminar partida */
+    }
+
+    /*
      * Método a llamar cuando el jugador atrapa comida
      */
     public void cachedFood(string type)
@@ -125,8 +161,10 @@ public class Game : MonoBehaviour
         }
         else
         {
-            // Reducir la puntuación por atrapar comida chatarra
-            setScore(-1);
+            // Vibrar teléfono
+            Handheld.Vibrate();
+            // Eliminar corazón
+            deleteHeart();
         }
     }
 }
