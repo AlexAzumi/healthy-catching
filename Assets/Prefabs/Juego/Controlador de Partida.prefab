@@ -403,6 +403,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  gameOverSceen: {fileID: 0}
   spawnPositions:
   - {fileID: 1673129249}
   - {fileID: 1266382912}

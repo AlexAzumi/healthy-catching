@@ -18,7 +18,7 @@ public class CatchFood : MonoBehaviour
             // Obtener tipo de comida
             string type = collision.gameObject.GetComponent<FoodType>().getFoodType();
             // Enviar a controlador de juego
-            game.cachedFood(type);
+            game.catchedFood(type);
             // Eliminar objeto
             Destroy(collision.gameObject);
             // Restaurar sprite

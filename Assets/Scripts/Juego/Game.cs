@@ -11,6 +11,8 @@ public class Game : MonoBehaviour
 	[Header("UI")]
 	public GameObject playerScoreText;
 	public GameObject[] hearts;
+	public GameObject gameOverSceen;
+	public Text finalScore;
 	[Header("Posiciones")]
 	public GameObject[] spawnPositions;
 	[Header("Cereales")]
@@ -139,6 +141,8 @@ public class Game : MonoBehaviour
 		else
 		{
 			Debug.LogWarning("Partida terminada");
+			finalScore.text = playerScore.ToString();
+			finishGame();
 		}
 }
 
@@ -147,13 +151,18 @@ public class Game : MonoBehaviour
 	 */
 	public void finishGame()
 	{
-		/* TODO: Hacer método de terminar partida */
+		// Obtener componente 'Pause'
+		Pause pause = GetComponent<Pause>();
+		// Pausar el juego
+		pause.PauseGame();
+		// Activar pantalla de fin de juego
+		gameOverSceen.SetActive(true);
 	}
 
 	/*
 	 * Método a llamar cuando el jugador atrapa comida
 	 */
-	public void cachedFood(string type)
+	public void catchedFood(string type)
 	{
 		if (type != "Chatarra")
 		{
