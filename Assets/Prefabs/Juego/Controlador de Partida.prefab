@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 5872050210500686220}
   - component: {fileID: 5872050210500686323}
   - component: {fileID: 5872050210500686221}
+  - component: {fileID: 1089599757748733800}
   - component: {fileID: 6024045784440381876}
   m_Layer: 0
   m_Name: Controlador de Partida
@@ -367,6 +368,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e95ba509e3f6f049b262e65a7c58488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1089599757748733800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5872050210500686322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429995fcf769ffe4ca9e948e40e59180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6024045784440381876
