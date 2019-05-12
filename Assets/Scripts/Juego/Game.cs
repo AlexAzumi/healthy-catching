@@ -93,7 +93,7 @@ public class Game : MonoBehaviour
 		// Obtener alimento
 		int foodPosition = Random.Range(0, food.Length);
 		GameObject newFood = food[foodPosition];
-		// Variar masa
+		// Variar escala de gravedad
 		float gravityScale = Random.Range(minGravityScale, maxGravityScale);
 		newFood.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
 		// Instanciar elemento
