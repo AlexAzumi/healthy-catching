@@ -92,12 +92,11 @@ public class Game : MonoBehaviour
 	{
 		// Obtener alimento
 		int foodPosition = Random.Range(0, food.Length);
-		GameObject newFood = food[foodPosition];
+		// Instanciar elemento
+		GameObject foodOnGame = Instantiate(food[foodPosition], spawnPositions[spawnPosition].transform.position, spawnPositions[spawnPosition].transform.rotation);
 		// Variar escala de gravedad
 		float gravityScale = Random.Range(minGravityScale, maxGravityScale);
-		newFood.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
-		// Instanciar elemento
-		Instantiate(newFood, spawnPositions[spawnPosition].transform.position, spawnPositions[spawnPosition].transform.rotation);
+		foodOnGame.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
 	}
 
 	/*
