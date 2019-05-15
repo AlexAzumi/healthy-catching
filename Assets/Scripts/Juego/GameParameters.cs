@@ -42,4 +42,12 @@ public class GameParameters : MonoBehaviour
     {
 			difficult = diff;
     }
+
+		/*
+		 *
+		 */
+		public int? getDifficulty()
+		{
+			return difficult;
+		}
 }

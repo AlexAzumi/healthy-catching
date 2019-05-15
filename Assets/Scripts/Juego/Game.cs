@@ -6,8 +6,12 @@ public class Game : MonoBehaviour
 	[Header("Parámetros")]
 	public int playerScore;
 	public float timeBetweenSpawn = 1.0f;
-	public float minGravityScale = 0.5f;
-	public float maxGravityScale = 1.2f;
+	[Header("Fácil")]
+	public float minGravEasy = 0.5f;
+	public float maxGravEasy = 1.2f;
+	[Header("Normal")]
+	public float minGravNormal = 0.4f;
+	public float maxGravNormal = 1.5f;
 	[Header("UI")]
 	public GameObject playerScoreText;
 	public GameObject[] hearts;
@@ -28,9 +32,14 @@ public class Game : MonoBehaviour
 	[Header("Verduras")]
 	public GameObject[] verduras;
 
+	// Componentes
+	private GameParameters gameParameters;
+
 	// Otras variables
 	private float timer;
 	private int heartCount;
+	private float minGravityScale;
+	private float maxGravityScale;
 
 	/*
 	 * Iniciar juego
@@ -41,6 +50,25 @@ public class Game : MonoBehaviour
 		playerScore = 0;
 		timer = 0;
 		heartCount = 2;
+		gameParameters = GetComponent<GameParameters>();
+		// Parámetros de dificultad
+		switch (gameParameters.getDifficulty())
+		{
+			// Fácil
+			case 0:
+				minGravityScale = minGravEasy;
+				maxGravityScale = maxGravEasy;
+				break;
+			case 1:
+				minGravityScale = minGravNormal;
+				maxGravityScale = maxGravNormal;
+				break;
+			default:
+				Debug.Log("No se seleccionó dificultad...");
+				minGravityScale = minGravEasy;
+				maxGravityScale = maxGravEasy;
+				break;
+		}
 	}
 
 	/*
