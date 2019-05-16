@@ -32,6 +32,7 @@ public class GameParameters : MonoBehaviour
 			else
 			{
 				Debug.Log("Dificultad no definida");
+				difficult = 0;
 			}
     }
 
