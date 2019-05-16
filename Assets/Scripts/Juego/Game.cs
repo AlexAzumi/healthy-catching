@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
 	public float minGravEasy = 0.5f;
 	public float maxGravEasy = 0.9f;
 	[Header("Normal")]
+	public int foodPerRound = 10;
 	public float minGravNormal = 0.4f;
 	public float maxGravNormal = 1.1f;
 	public GameObject preparationScreen;
@@ -47,6 +48,7 @@ public class Game : MonoBehaviour
 	private int heartCount;
 	private int spawnTrashCount;
 	private int selectedFoodNum;
+	private int normalFoodCount;
 	private string selectedFood;
 	private float timer;
 	private float minGravityScale;
@@ -73,6 +75,7 @@ public class Game : MonoBehaviour
 				setEasyGame();
 				break;
 			case 1:
+				normalFoodCount = 0;
 				minGravityScale = minGravNormal;
 				maxGravityScale = maxGravNormal;
 				// Configurar juego en normal
@@ -95,7 +98,7 @@ public class Game : MonoBehaviour
 		timer += Time.deltaTime;
 		if (timer >= timeBetweenSpawn)
 		{
-			Debug.LogWarning("Siguiente chatarra: " + spawnTrashCount);
+			Debug.LogWarning("Siguiente especial: " + spawnTrashCount);
 			// Calcular spawn aleatorio
 			int spawn = Random.Range(0, spawnPositions.Length);
 			// Calcular tipo de comida aleatorio
@@ -104,13 +107,16 @@ public class Game : MonoBehaviour
 			{
 				foodPosition = Random.Range(0, 6);
 			}
+			else if (gameParameters.getDifficulty() == 1)
+			{
+				foodPosition = selectedFoodNum;
+			}
 			// Obtener comida
 			GameObject[] food = getFoodType(foodPosition);
 			// Aparecer comida
 			spawnFood(food, spawn);
 			// Reducir cuenta
-			if (gameParameters.getDifficulty() != 1)
-				spawnTrashCount -= 1;
+			spawnTrashCount -= 1;
 			// Reiniciar timer
 			timer = 0.0f;
 
@@ -146,7 +152,9 @@ public class Game : MonoBehaviour
 		selectedFood = getFoodType(selectedFoodNum)[0].GetComponent<FoodType>().getFoodType();
 		// Preparar pantalla
 		foodText.text = selectedFood;
+		Debug.LogWarning("Alimento seleccionado: " + selectedFoodNum);
 		preparationScreen.SetActive(true);
+		preparationScreen.GetComponent<Animator>().SetTrigger("StartGame");
 	}
 
 	/*
@@ -155,23 +163,23 @@ public class Game : MonoBehaviour
 	private GameObject[] getFoodType(int position)
 	{
 		switch (position)
-			{
-				case 0:
-					return cereales;
-				case 1:
-					return frutas;
-				case 2:
-					return leguminosas;
-				case 3:
-					return origenAnimal;
-				case 4:
-					return verduras;
-				case 5:
-					return chatarra;
-				default:
-					Debug.LogError("Tipo de comida fuera de rango");
-					return chatarra;
-			}
+		{
+			case 0:
+				return cereales;
+			case 1:
+				return frutas;
+			case 2:
+				return leguminosas;
+			case 3:
+				return origenAnimal;
+			case 4:
+				return verduras;
+			case 5:
+				return chatarra;
+			default:
+				Debug.LogError("Tipo de comida fuera de rango");
+				return chatarra;
+		}
 	}
 
 	/*
@@ -198,6 +206,11 @@ public class Game : MonoBehaviour
 		playerScore += 1;
 		// Actualizar UI
 		playerScoreText.GetComponent<Text>().text = "Puntos: " + playerScore;
+		// Verificar cuenta
+		if (gameParameters.getDifficulty() == 1)
+		{
+			normalFoodCount += 1;
+		}
 	}
 
 	/*
@@ -220,7 +233,31 @@ public class Game : MonoBehaviour
 			finalScore.text = playerScore.ToString();
 			finishGame();
 		}
-}
+	}
+
+	/*
+	 * Nueva ronda de alimentos
+	 */
+	private void newRound()
+	{
+		// Reiniciar contador
+		normalFoodCount = 0;
+		// Pausar el juego
+		GetComponent<Pause>().PauseGame();
+		// Seleccionar nuevo alimento
+		int newFood = selectedFoodNum;
+		while (newFood == selectedFoodNum)
+		{
+			newFood = Random.Range(0, 5);
+		}
+		selectedFoodNum = newFood;
+		selectedFood = getFoodType(selectedFoodNum)[0].GetComponent<FoodType>().getFoodType();
+		// Preparar pantalla
+		foodText.text = selectedFood;
+		Debug.LogWarning("Alimento seleccionado: " + selectedFoodNum);
+		preparationScreen.SetActive(true);
+		preparationScreen.GetComponent<Animator>().SetTrigger("StartRound");
+	}
 
 	/*
 	 * Fin de la partida
@@ -261,6 +298,10 @@ public class Game : MonoBehaviour
 			if (type.Equals(selectedFood))
 			{
 				addPoint();
+				if (normalFoodCount == foodPerRound)
+				{
+					newRound();
+				}
 			}
 			else
 			{

@@ -131,4 +131,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1341e52f87a610840a0d17c1cd79fbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodType: Fcereales[0].gameObject.GetComponent<FoodType>().getFoodType();V
+  foodType: Verduras
