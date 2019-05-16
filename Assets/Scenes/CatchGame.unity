@@ -919,6 +919,11 @@ PrefabInstance:
       propertyPath: finalScore
       value: 
       objectReference: {fileID: 1368857895}
+    - target: {fileID: 6024045784440381876, guid: 2a0d548033da7c24c9913219203de9f7,
+        type: 3}
+      propertyPath: minProbability
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a0d548033da7c24c9913219203de9f7, type: 3}
 --- !u!114 &6024045784440381876 stripped

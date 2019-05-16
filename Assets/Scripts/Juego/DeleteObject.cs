@@ -10,7 +10,7 @@ public class DeleteObject : MonoBehaviour
 		if (collision.gameObject.tag == "Food")
 		{
 			Destroy(collision.gameObject);
-			Debug.Log("Objeto eliminado: " + collision.gameObject.name);
+			// Debug.Log("Objeto eliminado: " + collision.gameObject.name);
 		}
 	}
 }

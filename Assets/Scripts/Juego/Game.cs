@@ -9,6 +9,9 @@ public class Game : MonoBehaviour
 	public Animator blackScreenAnimator;
 	public AudioSource sourceHit;
 	public AudioSource sourceCatch;
+	[Header("Chatarra")]
+	public int minProbability = 2;
+	public int maxProbability = 4;
 	[Header("Fácil")]
 	public float minGravEasy = 0.5f;
 	public float maxGravEasy = 0.9f;
@@ -42,6 +45,7 @@ public class Game : MonoBehaviour
 
 	// Otras variables
 	private int heartCount;
+	private int spawnTrashCount;
 	private int selectedFoodNum;
 	private string selectedFood;
 	private float timer;
@@ -57,6 +61,7 @@ public class Game : MonoBehaviour
 		playerScore = 0;
 		timer = 0;
 		heartCount = 2;
+		spawnTrashCount = Random.Range(minProbability, maxProbability);
 		gameParameters = GetComponent<GameParameters>();
 		// Parámetros de dificultad
 		switch (gameParameters.getDifficulty())
@@ -90,24 +95,30 @@ public class Game : MonoBehaviour
 		timer += Time.deltaTime;
 		if (timer >= timeBetweenSpawn)
 		{
+			Debug.LogWarning("Siguiente chatarra: " + spawnTrashCount);
 			// Calcular spawn aleatorio
 			int spawn = Random.Range(0, spawnPositions.Length);
 			// Calcular tipo de comida aleatorio
-			int foodPosition = 0;
-			if (gameParameters.getDifficulty() != 1)
+			int foodPosition = 5;
+			if (spawnTrashCount != 0)
 			{
-				foodPosition = Random.Range(0, 5);
-			}
-			else
-			{
-				foodPosition = Random.Range(selectedFoodNum - 1, selectedFoodNum + 1);
+				foodPosition = Random.Range(0, 6);
 			}
 			// Obtener comida
 			GameObject[] food = getFoodType(foodPosition);
 			// Aparecer comida
 			spawnFood(food, spawn);
+			// Reducir cuenta
+			if (gameParameters.getDifficulty() != 1)
+				spawnTrashCount -= 1;
 			// Reiniciar timer
 			timer = 0.0f;
+
+			if (spawnTrashCount < 0)
+			{
+				spawnTrashCount = Random.Range(minProbability - 1, maxProbability + 1);
+				Debug.Log("Espera: " + spawnTrashCount);
+			}
 		}
 	}
 
@@ -131,7 +142,7 @@ public class Game : MonoBehaviour
 		// Pausar juego
 		GetComponent<Pause>().PauseGame();
 		// Seleccionar alimento
-		selectedFoodNum = Random.Range(0, 4);
+		selectedFoodNum = Random.Range(0, 5);
 		selectedFood = getFoodType(selectedFoodNum)[0].GetComponent<FoodType>().getFoodType();
 		// Preparar pantalla
 		foodText.text = selectedFood;

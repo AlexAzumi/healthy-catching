@@ -12,7 +12,7 @@ public class CatchFood : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Atrapado: " + collision.gameObject.name);
+        // Debug.Log("Atrapado: " + collision.gameObject.name);
         if (collision.gameObject.tag == "Food")
         {
             // Obtener tipo de comida
