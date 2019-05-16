@@ -6,6 +6,9 @@ public class Game : MonoBehaviour
 	[Header("Parámetros")]
 	public int playerScore;
 	public float timeBetweenSpawn = 1.0f;
+	public Animator blackScreenAnimator;
+	public AudioSource sourceHit;
+	public AudioSource sourceCatch;
 	[Header("Fácil")]
 	public float minGravEasy = 0.5f;
 	public float maxGravEasy = 0.9f;
@@ -62,6 +65,7 @@ public class Game : MonoBehaviour
 			case 0:
 				minGravityScale = minGravEasy;
 				maxGravityScale = maxGravEasy;
+				setEasyGame();
 				break;
 			case 1:
 				minGravityScale = minGravNormal;
@@ -107,6 +111,21 @@ public class Game : MonoBehaviour
 		}
 	}
 
+	/*
+	 * Establecer juego en Fácil
+	 */
+	private void setEasyGame()
+	{
+		// Pausar juego
+		GetComponent<Pause>().PauseGame();
+		// Activar pantalla
+		blackScreenAnimator.gameObject.SetActive(true);
+		blackScreenAnimator.SetTrigger("StartGame");
+	}
+
+	/*
+	 * Establecer juego en Normal
+	 */
 	private void setNormalGame()
 	{
 		// Pausar juego
@@ -119,6 +138,9 @@ public class Game : MonoBehaviour
 		preparationScreen.SetActive(true);
 	}
 
+	/*
+	 * Obtener tipo de comida
+	 */
 	private GameObject[] getFoodType(int position)
 	{
 		switch (position)
@@ -137,7 +159,7 @@ public class Game : MonoBehaviour
 					return chatarra;
 				default:
 					Debug.LogError("Tipo de comida fuera de rango");
-					return null;
+					return chatarra;
 			}
 	}
 
@@ -160,6 +182,8 @@ public class Game : MonoBehaviour
 	 */
 	private void addPoint()
 	{
+		// SFX
+		sourceCatch.Play();
 		playerScore += 1;
 		// Actualizar UI
 		playerScoreText.GetComponent<Text>().text = "Puntos: " + playerScore;
@@ -170,6 +194,8 @@ public class Game : MonoBehaviour
 	 */
 	private void deleteHeart()
 	{
+		// SFX
+		sourceHit.Play();
 		// Desactivar corazón
 		hearts[heartCount].SetActive(false);
 		if (heartCount > 0)

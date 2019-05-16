@@ -396,14 +396,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   timeBetweenSpawn: 1
-  minGravityScale: 0.5
-  maxGravityScale: 1.2
+  blackScreenAnimator: {fileID: 0}
+  sourceHit: {fileID: 0}
+  sourceCatch: {fileID: 0}
+  minGravEasy: 0.5
+  maxGravEasy: 0.9
+  minGravNormal: 0.4
+  maxGravNormal: 1.1
+  preparationScreen: {fileID: 0}
+  foodText: {fileID: 0}
   playerScoreText: {fileID: 0}
   hearts:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   gameOverSceen: {fileID: 0}
+  finalScore: {fileID: 0}
   spawnPositions:
   - {fileID: 1673129249}
   - {fileID: 1266382912}
