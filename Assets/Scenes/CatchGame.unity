@@ -358,6 +358,12 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 904930744}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &904930747 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5609082959141855382, guid: 3e3f5be3874ad4b4a9f314c8be320cb8,
+    type: 3}
+  m_PrefabInstance: {fileID: 904930744}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1048948826 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1048948826, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
@@ -698,6 +704,116 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 904930746}
+    - target: {fileID: 8053578298486629321, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664286244936323, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664287208417776, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664287063251886, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664285411711640, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664286720399448, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664285528149103, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664286025654715, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664286289784718, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664286697029938, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664287291406003, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664286502707200, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664286382556165, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664286116228119, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664286776332304, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930746}
+    - target: {fileID: 5381664286805769819, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664287446259465, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664286942362348, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664285649652998, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664286666965444, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664287470421163, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
+    - target: {fileID: 5381664285571370816, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 904930747}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f12ed32a89ecfc44b27e06b3a4a2d98, type: 3}
 --- !u!114 &1427065556746710316 stripped
