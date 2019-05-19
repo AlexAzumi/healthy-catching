@@ -82,7 +82,7 @@ public class Game : MonoBehaviour
 				setNormalGame();
 				break;
 			default:
-				Debug.Log("No se seleccionó dificultad...");
+				Debug.LogWarning("No se seleccionó dificultad...");
 				minGravityScale = minGravEasy;
 				maxGravityScale = maxGravEasy;
 				break;
@@ -98,7 +98,7 @@ public class Game : MonoBehaviour
 		timer += Time.deltaTime;
 		if (timer >= timeBetweenSpawn)
 		{
-			Debug.LogWarning("Siguiente especial: " + spawnTrashCount);
+			// Debug.LogWarning("Siguiente especial: " + spawnTrashCount);
 			// Calcular spawn aleatorio
 			int spawn = Random.Range(0, spawnPositions.Length);
 			// Calcular tipo de comida aleatorio
@@ -123,7 +123,7 @@ public class Game : MonoBehaviour
 			if (spawnTrashCount < 0)
 			{
 				spawnTrashCount = Random.Range(minProbability - 1, maxProbability + 1);
-				Debug.Log("Espera: " + spawnTrashCount);
+				// Debug.Log("Espera: " + spawnTrashCount);
 			}
 		}
 	}
@@ -152,7 +152,7 @@ public class Game : MonoBehaviour
 		selectedFood = getFoodType(selectedFoodNum)[0].GetComponent<FoodType>().getFoodType();
 		// Preparar pantalla
 		foodText.text = selectedFood;
-		Debug.LogWarning("Alimento seleccionado: " + selectedFoodNum);
+		Debug.Log("Alimento seleccionado: " + selectedFoodNum);
 		preparationScreen.SetActive(true);
 		preparationScreen.GetComponent<Animator>().SetTrigger("StartGame");
 	}
@@ -229,7 +229,7 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogWarning("Partida terminada");
+			Debug.Log("Partida terminada");
 			finalScore.text = playerScore.ToString();
 			finishGame();
 		}
@@ -254,7 +254,7 @@ public class Game : MonoBehaviour
 		selectedFood = getFoodType(selectedFoodNum)[0].GetComponent<FoodType>().getFoodType();
 		// Preparar pantalla
 		foodText.text = selectedFood;
-		Debug.LogWarning("Alimento seleccionado: " + selectedFoodNum);
+		Debug.Log("Alimento seleccionado: " + selectedFoodNum);
 		preparationScreen.SetActive(true);
 		preparationScreen.GetComponent<Animator>().SetTrigger("StartRound");
 	}
