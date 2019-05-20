@@ -1,4 +1,6 @@
 # Healthy Catching
+![GitHub repo size](https://img.shields.io/github/repo-size/alexazumi/healthy-catching.svg?style=popout)
+![GitHub](https://img.shields.io/github/license/alexazumi/healthy-catching.svg?style=popout)
 
 <p align="center">
   <img src="/Assets/Sprites/Frutas/manzana.png" alt="Logo" width="250px">
