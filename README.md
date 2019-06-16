@@ -1,4 +1,5 @@
 # Healthy Catching
+[![CodeFactor](https://www.codefactor.io/repository/github/alexazumi/healthy-catching/badge)](https://www.codefactor.io/repository/github/alexazumi/healthy-catching)
 ![GitHub repo size](https://img.shields.io/github/repo-size/alexazumi/healthy-catching.svg?style=popout)
 ![GitHub](https://img.shields.io/github/license/alexazumi/healthy-catching.svg?style=popout)
 ![GitHub top language](https://img.shields.io/github/languages/top/alexazumi/healthy-catching.svg?color=yellow&style=popout)
