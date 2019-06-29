@@ -15,7 +15,7 @@
 Healthy Catching es un pequeño juego educativo para dispositivos Android, desarrollado como un proyecto escolar del **Centro Universitario de Tonalá** (CUT) con el objetivo de concientizar a los niños y niñas sobre la buena alimentación
 
 ## Versión pre-compilada
-Puedes encontrar la versión del juego ya pre-compilada en APK en el sitio: https://healthy-catching.netlify.com/
+Puedes encontrar la versión del juego ya pre-compilada en APK en el sitio: https://healthycatching.netlify.com/
 
 ## Edición y compilación personalizada
 Para poder editar el juego, es necesario tener instalado el motor gráfico **Unity** en la versión **2018.3.8f1** como mínimo.
